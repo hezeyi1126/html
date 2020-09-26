@@ -1,0 +1,25 @@
+
+
+.myspan { color: red ;
+}
+
+.myspan:hover { 
+	cursor: pointer;
+	
+
+
+}
+
+.mytag{
+	position: absolute;
+	opacity: 0;
+	background-color: black;
+	color: white;
+	/*display: none;*/
+	padding: 10px;
+	transition: opacity 0.8s;
+
+}
+
+
+

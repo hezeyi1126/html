@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>鼠标上移显示</title>
+	<link rel="stylesheet" type="text/css" href="MouseOverShow.css">
+	
+	<meta charset="utf-8">
+
+	<script type="text/javascript">
+
+		window.addEventListener("load",function(){
+			// console.log(document.getElementById("target"));
+			document.getElementById("target").addEventListener("mouseenter",function(event){
+				 showTag(event);
+			});
+			document.getElementById("target").addEventListener("mouseout",function(){
+				 hideTag();
+			});
+		});
+
+		function showTag(event){
+		// 	console.log("showTag");
+			var tag = createTag(event);
+			 setTimeout(function(){
+			 	 tag.style.opacity = 1;
+			 },50);
+			
+			// tag.classList.add('mytagShow');
+		}
+
+		function hideTag(){
+			// console.log("hideTag");
+			document.querySelector(".mytag").style.opacity = 0;
+			 setTimeout(function(){
+			 	 document.querySelector(".mytag").remove();
+			 },500);
+			 
+			// document.querySelector(".tag");
+		}
+
+		function createTag(event){
+			console.log(event);
+			var tag = document.createElement("div");
+			tag.innerHTML = "ss";
+			tag.setAttribute("class","mytag");
+			tag.style.left = event.clientX + 20 + 'px';
+			tag.style.top = event.clientY + 10 + 'px';;
+			document.body.appendChild(tag);
+			return tag;
+			// console.log(event.clientX);
+			// console.log(event.clientY);
+		}
+
+
+	</script>
+</head>
+<body>
+	<span id="target" class="myspan" mytip="要显示的文字">上移显示</span>
+
+	<div  class="myspan">上移显示</div>
+
+</body>
+</html>
